@@ -24,14 +24,15 @@
        android:layout_width="match_parent"
        android:layout_height="match_parent"
        android:id="@+id/existinglist"
-       android:layout_marginTop="80dp"/>
+       android:layout_below="@+id/title" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/inputlist"
-        android:layout_below="@+id/title"
-        />
+        android:gravity="top"
+        android:layout_alignBottom="@+id/existinglist"
+        android:layout_alignTop="@+id/addbutton" />
     <ImageButton
         android:layout_width="60dp"
         android:layout_height="60dp"
