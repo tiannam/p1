@@ -29,7 +29,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/oldlist" />
+        android:layout_below="@+id/oldlist"
+        android:gravity="bottom"/>
     <ImageButton
         android:layout_width="60dp"
         android:layout_height="60dp"
