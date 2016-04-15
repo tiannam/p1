@@ -7,7 +7,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.LinkedList;
 
@@ -15,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     LinkedList <String> toDoList;
     ArrayAdapter<String> lAdapter;
     EditText inputText;
-
+    ImageButton lAddButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +33,10 @@ public class MainActivity extends AppCompatActivity {
         ListView listView = (ListView)findViewById(R.id.existinglist);
         listView.setAdapter(lAdapter);
 
-//        EditText inputText = new (EditText)findViewById(R.id.inputlist);
-//        inputText.setText("");
+        lAddButton = (ImageButton)findViewById(R.id.addbutton);
+
+        inputText = (EditText)findViewById(R.id.inputlist);
+        inputText.setText("");
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -44,6 +48,19 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 lAdapter.notifyDataSetChanged();
                 return;
+            }
+        });
+        lAddButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String input = inputText.getText().toString();
+                if (input.length() > 0) {
+                    toDoList.add(input);
+                    lAdapter.notifyDataSetChanged();
+                    inputText.setText("");
+                } else {
+                    Toast.makeText(getApplicationContext(), "Enter a list", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
