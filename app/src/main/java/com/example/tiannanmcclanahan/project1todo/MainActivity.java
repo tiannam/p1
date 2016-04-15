@@ -14,6 +14,7 @@ import android.widget.Toast;
 import java.util.LinkedList;
 
 public class MainActivity extends AppCompatActivity {
+    //Declaring variables
     LinkedList <String> toDoList;
     ArrayAdapter<String> lAdapter;
     EditText inputText;
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //listOfLists = (EditText) findViewById(R.id.listOfLists);
+        //Creating objects, assigning the variables, and referencing them from the xml file
         toDoList = new LinkedList<>();
         toDoList.add("Grocery List");
         toDoList.add("To-Do List");
@@ -38,16 +39,18 @@ public class MainActivity extends AppCompatActivity {
         inputText = (EditText)findViewById(R.id.inputlist);
         inputText.setText("");
 
+        //Set OnItemClickListener to EditText to enter a list
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(MainActivity.this, TodoDetailActivity.class);
-                intent.putExtra("eggs", position);
                 startActivity(intent);
                 lAdapter.notifyDataSetChanged();
                 return;
             }
         });
+
+        //Set OnClickListener to add button to add a new list
         lAddButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,12 +59,14 @@ public class MainActivity extends AppCompatActivity {
                     toDoList.add(input);
                     lAdapter.notifyDataSetChanged();
                     inputText.setText("");
+                    //toast to prompt the user when they try to add without any text
                 } else {
                     Toast.makeText(getApplicationContext(), "You didn't make a list.", Toast.LENGTH_LONG).show();
                 }
             }
         });
 
+        //set OnItemLongClickListener to delete list
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
