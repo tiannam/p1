@@ -16,22 +16,22 @@
         android:layout_height="wrap_content"
         android:id="@+id/title"
         android:text="To-Do Lists"
-        android:textSize="@android:dimen/app_icon_size"
-        android:padding="20dp"
-        android:gravity="top"
+        android:textSize="40sp"
+        android:padding="5dp"
+        android:gravity="bottom"
         />
     <ListView
        android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:layout_below="@+id/title"
+       android:layout_height="match_parent"
        android:id="@+id/existinglist"
-       />
+       android:layout_marginTop="80dp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/inputlist"
-        android:layout_below="@id/existinglist"/>
+        android:layout_below="@+id/title"
+        />
     <ImageButton
         android:layout_width="60dp"
         android:layout_height="60dp"

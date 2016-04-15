@@ -36,8 +36,9 @@ public class TodoDetailActivity extends AppCompatActivity {
         itemText.setText("");
 
         ListView itemView = (ListView) findViewById(R.id.tododetail);
-        textView = (TextView)findViewById(R.id.oldlist);
         itemView.setAdapter(iAdapter);
+        textView = (TextView)findViewById(R.id.oldlist);
+
 
         itemView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -54,7 +55,7 @@ public class TodoDetailActivity extends AppCompatActivity {
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 itemList.remove(position);
                 iAdapter.notifyDataSetChanged();
-                return false;
+                return true;
             }
         });
         iAddButton.setOnClickListener(new View.OnClickListener() {
