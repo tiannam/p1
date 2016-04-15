@@ -42,9 +42,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(MainActivity.this, TodoDetailActivity.class);
-                intent.putExtra("eggs", 0);
-                intent.putExtra("bread", 1);
-                intent.putExtra("milk", 2);
+                intent.putExtra("eggs", position);
                 startActivity(intent);
                 lAdapter.notifyDataSetChanged();
                 return;
@@ -59,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                     lAdapter.notifyDataSetChanged();
                     inputText.setText("");
                 } else {
-                    Toast.makeText(getApplicationContext(), "Enter a list", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "You didn't make a list.", Toast.LENGTH_LONG).show();
                 }
             }
         });
